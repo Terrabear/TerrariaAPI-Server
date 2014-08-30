@@ -185,7 +185,7 @@ namespace Terraria
 						{
 							if (File.Exists(Main.worldPathName))
 							{
-								Main.statusText = Lang.gen[50];
+								//Main.statusText = Lang.gen[50];
 								string destFileName = Main.worldPathName + ".bak";
 								File.Copy(Main.worldPathName, destFileName, true);
 							}
@@ -873,10 +873,10 @@ namespace Terraria
 				float num = (float)i / (float)Main.maxTilesX;
 				Main.statusText = string.Concat(new object[]
 				{
-					Lang.gen[49],
-					" ",
-					(int)(num * 100f + 1f),
-					"%"
+                    //Lang.gen[49],
+                    //" ",
+                    //(int)(num * 100f + 1f),
+                    //"%"
 				});
 				for (int j = 0; j < Main.maxTilesY; j++)
 				{
@@ -1669,10 +1669,10 @@ namespace Terraria
 									float num5 = (float)i / (float)Main.maxTilesX;
 									Main.statusText = string.Concat(new object[]
 									{
-										Lang.gen[73],
-										" ",
-										(int)(num5 * 100f + 1f),
-										"%"
+										//Lang.gen[73],
+                                        //" ",
+                                        //(int)(num5 * 100f + 1f),
+                                        //"%"
 									});
 									for (int j = 0; j < num3; j++)
 									{

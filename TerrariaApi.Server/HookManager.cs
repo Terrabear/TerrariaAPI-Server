@@ -24,7 +24,7 @@ namespace TerrariaApi.Server
 			get { return this.clientChatReceived; }
 		}
 
-		internal void InvokeClientChatReceived(byte playerID, Color color, string message)
+		internal void InvokeClientChatReceived(byte playerID, Color color, string message) //byte playerID //ck3
 		{
 			ChatReceivedEventArgs args = new ChatReceivedEventArgs
 			{
@@ -368,7 +368,7 @@ namespace TerrariaApi.Server
 				byte playerID = buffer.readBuffer[index];
 				Color color = new Color(buffer.readBuffer[index + 1] << 16, buffer.readBuffer[index + 2] << 8, buffer.readBuffer[index + 3]);
 				string @string = Encoding.UTF8.GetString(buffer.readBuffer, index + 4, length - 5);
-				this.InvokeClientChatReceived(playerID, color, @string);
+				this.InvokeClientChatReceived(playerID, color, @string);//playerID //ck4
 			}
 
 			if (Main.netMode == 2)
@@ -398,13 +398,13 @@ namespace TerrariaApi.Server
 							stream.Position = index;
 							using(var reader = new BinaryReader(stream))
 							{
-								reader.ReadByte();
+								//reader.ReadByte();
 								reader.ReadRGB();
 								text = reader.ReadString();
 							}
 						}
 
-						if (this.InvokeServerChat(buffer, buffer.whoAmI, @text))
+						if (this.InvokeServerChat(buffer, buffer.whoAmI, @text)) //buffer //, buffer.whoAmI)) //ck1
 									return true;
 
 						break;
@@ -892,7 +892,7 @@ namespace TerrariaApi.Server
 			get { return this.serverChat; }
 		}
 
-		internal bool InvokeServerChat(MessageBuffer buffer, int who, string text)
+        internal bool InvokeServerChat(MessageBuffer buffer, int who, string text) //MessageBuffer buffer //int who) //ck2
 		{
 			ServerChatEventArgs args = new ServerChatEventArgs
 			{

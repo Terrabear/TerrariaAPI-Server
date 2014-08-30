@@ -29,7 +29,7 @@ public enum PacketTypes
 	PlayerDamage,
 	ProjectileNew,
 	NpcStrike,
-	ProjectileDestroy,
+	ProjectileDestroy, //29
 	TogglePvp,
 	ChestGetContents,
 	ChestItem,
